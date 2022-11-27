@@ -15,13 +15,14 @@ public class ServiceFaculteApplication {
         SpringApplication.run(ServiceFaculteApplication.class, args);
     }
 
-//    @Bean
-//    CommandLineRunner start(FaculteRepository faculteRepository,
-//                            RepositoryRestConfiguration repositoryRestConfiguration){
-//        repositoryRestConfiguration.exposeIdsFor(Faculte.class);
-//        return args -> {
-//
-//        };
-//    }
+    @Bean
+    CommandLineRunner start(FaculteRepository faculteRepository,
+                            RepositoryRestConfiguration repositoryRestConfiguration){
+        repositoryRestConfiguration.exposeIdsFor(Faculte.class);
+        return args -> {
+            faculteRepository.save(new Faculte(null,"ISSAT SOUSSE"));
+            faculteRepository.save(new Faculte(null,"ISSAT GAFSA"));
+        };
+    }
 
 }
